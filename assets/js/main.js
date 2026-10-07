@@ -3,6 +3,7 @@
   root.classList.add("js");
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const touch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
   const params = new URLSearchParams(window.location.search);
   let seen = false;
   try {
@@ -74,7 +75,7 @@
       });
     }
 
-    if (!reduced) {
+    if (!reduced && !touch) {
       let blur = 0;
       let target = 0;
       let running = false;
