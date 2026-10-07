@@ -1,4 +1,4 @@
-const CONTACT_ENDPOINT = "";
+const CONTACT_ENDPOINT = "https://rianray.dev/api/contact";
 
 (function () {
   "use strict";
@@ -98,7 +98,7 @@ const CONTACT_ENDPOINT = "";
       name: fields.name.el.value.trim(),
       email: fields.email.el.value.trim(),
       message: fields.message.el.value.trim(),
-      website: form.elements.website.value,
+      trap: form.elements.website.value,
       elapsed: Number(timer.value)
     };
     wait(true);
@@ -107,14 +107,20 @@ const CONTACT_ENDPOINT = "";
       headers: { "content-type": "application/json" },
       body: JSON.stringify(body)
     }).then(function (res) {
+      if (res.status === 500) {
+        var config = new Error("config");
+        config.config = true;
+        throw config;
+      }
       if (!res.ok) throw new Error("status");
       return res.json().catch(function () { return { ok: true }; });
     }).then(function (data) {
       if (data && data.ok === false) throw new Error("reply");
       finish();
-    }).catch(function () {
+    }).catch(function (err) {
       wait(false);
-      say("Something went wrong. Please try again or use LinkedIn.", "error");
+      if (err && err.config) say("The form is being connected. Please use LinkedIn for now.", "calm");
+      else say("Something went wrong. Please try again or use LinkedIn.", "error");
     });
   });
 
