@@ -84,9 +84,11 @@ body.page-ts .hero__title {
   height: 16px;
 }
 
-.hm-arrow:hover:not(:disabled) {
-  background: var(--bt-ink);
-  color: #fff;
+@media (hover: hover) and (pointer: fine) {
+  .hm-arrow:hover:not(:disabled) {
+    background: var(--bt-ink);
+    color: #fff;
+  }
 }
 
 .hm-arrow:active:not(:disabled) {
@@ -200,12 +202,24 @@ body.page-ts .hero__title {
   line-height: 1.25;
 }
 
-.hm-tile > a:is(:hover, :focus-visible) .hm-tile__media {
+.hm-tile > a:focus-visible .hm-tile__media {
   box-shadow: 0 0 0 2px var(--teal-dark), 0 30px 46px -30px rgba(11, 26, 31, .6);
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .hm-tile > a:hover .hm-tile__media {
+    box-shadow: 0 0 0 2px var(--teal-dark), 0 30px 46px -30px rgba(11, 26, 31, .6);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .hm-tile > a:is(:hover, :focus-visible) .hm-tile__media {
+  .hm-tile > a:focus-visible .hm-tile__media {
+    translate: 0 -4px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .hm-tile > a:hover .hm-tile__media {
     translate: 0 -4px;
   }
 }

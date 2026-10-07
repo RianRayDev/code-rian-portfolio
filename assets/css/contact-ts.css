@@ -236,10 +236,16 @@ body.page-contact .hero--inner .hero__ctas {
   transition: background-color .25s var(--ts-ease-io), translate .25s var(--ts-ease), box-shadow .25s var(--ts-ease-io), scale .2s var(--ts-ease-io);
 }
 
-.ct-submit:hover:not(:disabled),
 .ct-submit:focus-visible {
   background: #1f4a57;
   box-shadow: 0 18px 30px -18px rgba(11, 26, 31, .7);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ct-submit:hover:not(:disabled) {
+    background: #1f4a57;
+    box-shadow: 0 18px 30px -18px rgba(11, 26, 31, .7);
+  }
 }
 
 .ct-submit:focus-visible {
@@ -373,9 +379,11 @@ body.page-contact .hero--inner .hero__ctas {
   transition: background-color .25s var(--ts-ease-io), color .25s var(--ts-ease-io), translate .25s var(--ts-ease);
 }
 
-.ct-again:hover {
-  color: #fff;
-  background: var(--bt-ink);
+@media (hover: hover) and (pointer: fine) {
+  .ct-again:hover {
+    color: #fff;
+    background: var(--bt-ink);
+  }
 }
 
 .ct-again:focus-visible {
@@ -383,11 +391,14 @@ body.page-contact .hero--inner .hero__ctas {
   outline-offset: 4px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
   .ct-submit:hover:not(:disabled),
   .ct-again:hover {
     translate: 0 -2px;
   }
+}
+
+@media (prefers-reduced-motion: no-preference) {
   .ct-form.is-busy .ct-submit__spin {
     animation: ct-spin .8s linear infinite;
   }
@@ -460,6 +471,7 @@ body.page-contact .hero--inner .hero__ctas {
     justify-self: stretch;
     max-width: none;
     margin-inline: calc(16px - var(--container-pad));
+    padding-inline: calc(var(--container-pad) - 16px);
     width: auto;
   }
   .ct-pane__title {
@@ -469,7 +481,7 @@ body.page-contact .hero--inner .hero__ctas {
 
 @media (max-width: 560px) {
   .ct-pane {
-    padding: 24px;
+    padding-block: 24px;
   }
 }
 

@@ -187,11 +187,18 @@
   transition: transform .35s var(--tsv-ease), border-color .25s var(--tsv-ease-io), box-shadow .35s var(--tsv-ease);
 }
 
-.tsv-card:hover,
 .tsv-card:focus-visible {
   border-color: var(--tsv-line-2);
   transform: translateY(-4px);
   box-shadow: 0 22px 44px -24px rgba(0, 0, 0, .75);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tsv-card:hover {
+    border-color: var(--tsv-line-2);
+    transform: translateY(-4px);
+    box-shadow: 0 22px 44px -24px rgba(0, 0, 0, .75);
+  }
 }
 
 .tsv-card:focus-visible {
@@ -274,16 +281,25 @@
   transition: background-color .25s var(--tsv-ease-io), transform .35s var(--tsv-ease);
 }
 
-.tsv-card:hover::after,
 .tsv-card:focus-visible::after {
   background-color: var(--tsv-accent);
   border-color: transparent;
 }
 
-.tsv-card:hover .tsv-card__media::before,
 .tsv-card:focus-visible .tsv-card__media::before {
   background: #0b1316;
   transform: rotate(45deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tsv-card:hover::after {
+    background-color: var(--tsv-accent);
+    border-color: transparent;
+  }
+  .tsv-card:hover .tsv-card__media::before {
+    background: #0b1316;
+    transform: rotate(45deg);
+  }
 }
 
 .tsv-card__body {

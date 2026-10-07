@@ -132,9 +132,16 @@ body.page-inner .hero--inner :is(.btn-pill--solid, .btn-pill--glass) {
   transition: color var(--primary) var(--ease), translate .25s var(--ts-ease), box-shadow .25s var(--ts-ease-io), scale .2s var(--ease);
 }
 
-body.page-inner .hero--inner :is(.btn-pill--solid, .btn-pill--glass):is(:hover, :focus-visible) {
+body.page-inner .hero--inner :is(.btn-pill--solid, .btn-pill--glass):focus-visible {
   translate: 0 -2px;
   box-shadow: 0 16px 28px -16px rgba(11, 26, 31, .55);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .hero--inner :is(.btn-pill--solid, .btn-pill--glass):hover {
+    translate: 0 -2px;
+    box-shadow: 0 16px 28px -16px rgba(11, 26, 31, .55);
+  }
 }
 
 body.page-inner .hero--inner .btn-pill--solid {
@@ -406,7 +413,7 @@ body.page-inner .hero--portrait .hero__sub {
   aspect-ratio: 16 / 9;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
   .bt-card:hover .bt-cover picture > img {
     scale: 1.04;
   }
@@ -510,14 +517,25 @@ body.page-inner .bt-card .bt-card__link:focus-visible {
   transition: transform .35s var(--bt-ease);
 }
 
-.bt-card:is(:hover, :has(.bt-card__link:focus-visible)) {
+.bt-card:has(.bt-card__link:focus-visible) {
   border-color: rgba(var(--ts-accent-rgb), .65);
   box-shadow: 0 30px 50px -34px rgba(var(--ts-accent-rgb), .6);
 }
 
-.bt-card:is(:hover, :has(.bt-card__link:focus-visible)) .bt-cover__open {
+.bt-card:has(.bt-card__link:focus-visible) .bt-cover__open {
   background: #fff;
   color: var(--bt-ink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bt-card:is(:hover, :has(.bt-card__link:focus-visible)) {
+    border-color: rgba(var(--ts-accent-rgb), .65);
+    box-shadow: 0 30px 50px -34px rgba(var(--ts-accent-rgb), .6);
+  }
+  .bt-card:is(:hover, :has(.bt-card__link:focus-visible)) .bt-cover__open {
+    background: #fff;
+    color: var(--bt-ink);
+  }
 }
 
 .bt-card:active .bt-cover__open {
@@ -525,6 +543,15 @@ body.page-inner .bt-card .bt-card__link:focus-visible {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .bt-card:has(.bt-card__link:focus-visible) .bt-cover__open svg {
+    transform: translate(2px, -2px);
+  }
+  .bt-card:has(.bt-card__link:focus-visible) .bt-card__go svg {
+    translate: 3px 3px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
   .bt-card:hover {
     translate: 0 -4px;
   }
@@ -548,7 +575,7 @@ body.page-inner .bt-card .bt-card__link:focus-visible {
 
 /* tablet: cards sit as rows, cover left and text right */
 
-@media (min-width: 560px) and (max-width: 899px) {
+@media (min-width: 561px) and (max-width: 899px) {
   :is(.hm-sec, .ab-sec, .ct-sec) .ts-grid .ts-card.bt-card {
     flex-direction: row;
     align-items: center;
@@ -608,9 +635,16 @@ body.page-inner .bt-card .bt-card__link:focus-visible {
   box-shadow: 0 1px 2px rgba(11, 26, 31, .04), 0 22px 40px -32px rgba(11, 26, 31, .22);
 }
 
-:is(.hm-sec, .ab-sec, .ct-sec):not(.theme-dark-section) .ts-card.bt-card:is(:hover, :has(.bt-card__link:focus-visible)) {
+:is(.hm-sec, .ab-sec, .ct-sec):not(.theme-dark-section) .ts-card.bt-card:has(.bt-card__link:focus-visible) {
   border-color: rgba(46, 111, 129, .38);
   box-shadow: 0 1px 2px rgba(11, 26, 31, .05), 0 30px 50px -30px rgba(46, 111, 129, .4);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :is(.hm-sec, .ab-sec, .ct-sec):not(.theme-dark-section) .ts-card.bt-card:is(:hover, :has(.bt-card__link:focus-visible)) {
+    border-color: rgba(46, 111, 129, .38);
+    box-shadow: 0 1px 2px rgba(11, 26, 31, .05), 0 30px 50px -30px rgba(46, 111, 129, .4);
+  }
 }
 
 :is(.hm-sec, .ab-sec, .ct-sec):not(.theme-dark-section) .bt-cover:has(> :is(img, picture, video)) {
@@ -628,7 +662,33 @@ body.page-inner .bt-card .bt-card__link:focus-visible {
   box-shadow: 0 1px 3px rgba(11, 26, 31, .16);
 }
 
-:is(.hm-sec, .ab-sec, .ct-sec):not(.theme-dark-section) .bt-card:is(:hover, :has(.bt-card__link:focus-visible)) .bt-cover__open {
+:is(.hm-sec, .ab-sec, .ct-sec):not(.theme-dark-section) .bt-card:has(.bt-card__link:focus-visible) .bt-cover__open {
   background: var(--bt-ink);
   color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :is(.hm-sec, .ab-sec, .ct-sec):not(.theme-dark-section) .bt-card:is(:hover, :has(.bt-card__link:focus-visible)) .bt-cover__open {
+    background: var(--bt-ink);
+    color: #fff;
+  }
+}
+
+@media (max-width: 800px) {
+  body.page-inner .nav {
+    padding-top: calc(clamp(16px, 2.5vw, 32px) + 20px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (max-width: 1100px) {
+  body.page-inner .menu-btn__inner {
+    transition: transform var(--smooth) var(--ease), opacity var(--primary) var(--ease), filter .35s var(--ease), background-color var(--fast) var(--ease), scale .2s var(--ease);
+  }
+  .menu-panel {
+    transition: transform .55s var(--ease), filter .35s var(--ease);
+  }
+  .menu-open .menu-panel [data-mi] {
+    transition: opacity .45s var(--ease), filter .35s var(--ease), transform .45s var(--ease);
+    transition-delay: calc(.18s + var(--mi, 0) * 60ms);
+  }
 }

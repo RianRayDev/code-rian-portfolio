@@ -70,6 +70,7 @@ body.page-work .wf-who__role {
     min-height: min(100svh, 760px);
   }
   body.page-work .wf-who {
+    justify-self: start;
     flex-direction: row;
     align-items: center;
     gap: 14px;
@@ -125,11 +126,18 @@ body.page-work .wf-who__role {
   transition: background-color .25s cubic-bezier(.2, 0, 0, 1);
 }
 
-.wf-chip:hover,
 .wf-chip:focus-visible {
   background: rgba(103, 166, 182, .16);
   border-color: var(--teal-dark, #5590A0);
   translate: 0 -2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wf-chip:hover {
+    background: rgba(103, 166, 182, .16);
+    border-color: var(--teal-dark, #5590A0);
+    translate: 0 -2px;
+  }
 }
 
 .wf-chip:focus-visible {
@@ -186,9 +194,14 @@ body.page-work .wf-who__role {
   box-shadow: 0 28px 48px -38px rgba(11, 42, 51, .55);
 }
 
-.wf-group:not(.theme-dark-section) .tsv-card:hover,
 .wf-group:not(.theme-dark-section) .tsv-card:focus-visible {
   box-shadow: 0 30px 56px -30px rgba(11, 42, 51, .62);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wf-group:not(.theme-dark-section) .tsv-card:hover {
+    box-shadow: 0 30px 56px -30px rgba(11, 42, 51, .62);
+  }
 }
 
 .wf-group .tsv-card__line {

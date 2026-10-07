@@ -202,12 +202,14 @@ body.page-ts .hero__title {
   text-wrap: pretty;
 }
 
-.ab-pt:hover {
-  border-color: var(--teal-dark);
-  box-shadow: 0 30px 50px -36px rgba(11, 26, 31, .5);
+@media (hover: hover) and (pointer: fine) {
+  .ab-pt:hover {
+    border-color: var(--teal-dark);
+    box-shadow: 0 30px 50px -36px rgba(11, 26, 31, .5);
+  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
   .ab-pt:hover {
     translate: 0 -4px;
   }
