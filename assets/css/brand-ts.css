@@ -153,8 +153,14 @@ body.page-inner .hero--inner .btn-pill--solid .btn-pill__fill {
   background: var(--bt-ink);
 }
 
-body.page-inner .hero--inner .btn-pill--solid:is(:hover, :focus-visible) {
+body.page-inner .hero--inner .btn-pill--solid:focus-visible {
   color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .hero--inner .btn-pill--solid:hover {
+    color: #fff;
+  }
 }
 
 body.page-inner .hero--inner .btn-pill--glass {
@@ -168,8 +174,14 @@ body.page-inner .hero--inner .btn-pill--glass .btn-pill__fill {
   background: #1f4a57;
 }
 
-body.page-inner .hero--inner .btn-pill--glass:is(:hover, :focus-visible) {
+body.page-inner .hero--inner .btn-pill--glass:focus-visible {
   color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .hero--inner .btn-pill--glass:hover {
+    color: #fff;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -198,8 +210,10 @@ body.page-inner .hero--inner .hero__cue {
   color: var(--bt-ink);
 }
 
-body.page-inner .hero--inner .hero__cue:hover {
-  background: rgba(11, 26, 31, .22);
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .hero--inner .hero__cue:hover {
+    background: rgba(11, 26, 31, .22);
+  }
 }
 
 /* dark closing sections, teal accents */
@@ -213,9 +227,14 @@ body.page-inner .theme-dark-section .btn-pill--solid .btn-pill__fill {
   background: #fff;
 }
 
-body.page-inner .theme-dark-section .btn-pill--solid:hover,
 body.page-inner .theme-dark-section .btn-pill--solid:focus-visible {
   color: var(--bt-ink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .theme-dark-section .btn-pill--solid:hover {
+    color: var(--bt-ink);
+  }
 }
 
 body.page-inner .theme-dark-section .btn-pill--glass {
@@ -227,9 +246,14 @@ body.page-inner .theme-dark-section .btn-pill--glass .btn-pill__fill {
   background: var(--teal);
 }
 
-body.page-inner .theme-dark-section .btn-pill--glass:hover,
 body.page-inner .theme-dark-section .btn-pill--glass:focus-visible {
   color: var(--bt-ink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .theme-dark-section .btn-pill--glass:hover {
+    color: var(--bt-ink);
+  }
 }
 
 body.page-inner .btn-pill--dark .btn-pill__fill {
@@ -620,8 +644,14 @@ body.page-inner .bt-card .bt-card__link:focus-visible {
   color: rgba(255, 255, 255, .72);
 }
 
-.footer__link:is(:hover, :focus-visible) {
+.footer__link:focus-visible {
   color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer__link:hover {
+    color: #fff;
+  }
 }
 
 :is(.hm-sec, .ab-sec, .ct-sec):not(.theme-dark-section) .ts-card.bt-card {

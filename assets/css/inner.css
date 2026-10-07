@@ -73,21 +73,28 @@ body.page-inner .menu-btn__inner {
   transition: transform var(--smooth) var(--ease), opacity var(--primary) var(--ease), filter var(--smooth) var(--ease), background-color var(--fast) var(--ease), scale .2s var(--ease);
 }
 
-body.page-inner .menu-btn:hover .menu-btn__inner {
-  background: #fff;
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .menu-btn:hover .menu-btn__inner {
+    background: #fff;
+  }
 }
 
 body.page-inner .menu-btn:active .menu-btn__inner {
   scale: .94;
 }
 
-.menu-open body.page-inner .menu-btn__inner,
-.menu-open body.page-inner .menu-btn:hover .menu-btn__inner {
+.menu-open body.page-inner .menu-btn__inner {
   background: var(--blue);
 }
 
-.menu-open body.page-inner .menu-btn:is(:hover, :focus-visible) .menu-btn__inner {
+.menu-open body.page-inner .menu-btn:focus-visible .menu-btn__inner {
   background: var(--teal-dark);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menu-open body.page-inner .menu-btn:hover .menu-btn__inner {
+    background: var(--teal-dark);
+  }
 }
 
 body.page-inner .menu-btn:focus-visible .menu-btn__inner {
@@ -117,9 +124,11 @@ body.page-inner .btn-glass {
   transition: background-color var(--fast) var(--ease), scale .2s var(--ease);
 }
 
-body.page-inner .btn-glass:hover {
-  background: var(--dark);
-  box-shadow: none;
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .btn-glass:hover {
+    background: var(--dark);
+    box-shadow: none;
+  }
 }
 
 body.page-inner .btn-round__sheen {
@@ -159,9 +168,14 @@ body.page-inner .btn-pill__arrow {
   transition: transform var(--smooth) var(--ease);
 }
 
-body.page-inner .btn-pill:hover .btn-pill__arrow,
 body.page-inner .btn-pill:focus-visible .btn-pill__arrow {
   transform: translate(.12em, .12em);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .btn-pill:hover .btn-pill__arrow {
+    transform: translate(.12em, .12em);
+  }
 }
 
 body.page-inner .btn-pill--solid {
@@ -174,10 +188,16 @@ body.page-inner .btn-pill--solid .btn-pill__fill {
   background: var(--dark);
 }
 
-body.page-inner .btn-pill--solid:hover,
 body.page-inner .btn-pill--solid:focus-visible {
   color: #fff;
   border-color: transparent;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .btn-pill--solid:hover {
+    color: #fff;
+    border-color: transparent;
+  }
 }
 
 body.page-inner .btn-pill--glass {
@@ -192,10 +212,16 @@ body.page-inner .btn-pill--glass .btn-pill__fill {
   background: #fff;
 }
 
-body.page-inner .btn-pill--glass:hover,
 body.page-inner .btn-pill--glass:focus-visible {
   color: var(--dark);
   border-color: transparent;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .btn-pill--glass:hover {
+    color: var(--dark);
+    border-color: transparent;
+  }
 }
 
 body.page-inner .btn-pill--dark {
@@ -208,9 +234,14 @@ body.page-inner .btn-pill--dark .btn-pill__fill {
   background: var(--teal);
 }
 
-body.page-inner .btn-pill--dark:hover,
 body.page-inner .btn-pill--dark:focus-visible {
   border-color: transparent;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .btn-pill--dark:hover {
+    border-color: transparent;
+  }
 }
 
 body.page-inner .hero--dark .btn-pill--solid .btn-pill__fill,
@@ -433,8 +464,10 @@ body.page-inner .hero__cue svg {
   animation: inner-cue 2.4s var(--ease) infinite;
 }
 
-body.page-inner .hero__cue:hover {
-  background: rgba(255, 255, 255, .3);
+@media (hover: hover) and (pointer: fine) {
+  body.page-inner .hero__cue:hover {
+    background: rgba(255, 255, 255, .3);
+  }
 }
 
 body.page-inner .hero__cue:active {
@@ -544,6 +577,12 @@ body.page-inner .hero--portrait .hero__location {
     left: auto;
     right: 1rem;
     margin-left: 0;
+  }
+}
+
+@media (min-width: 561px) and (max-width: 620px) {
+  body.page-inner .hero--portrait .hero__portrait {
+    right: calc(-7vw - clamp(0px, 28.5svh + 352px - 99vw, 72px));
   }
 }
 

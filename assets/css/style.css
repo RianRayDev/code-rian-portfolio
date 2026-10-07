@@ -289,6 +289,8 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: .35em;
+  padding-block: 10px;
+  margin-block: -10px;
   font-weight: 500;
   overflow: hidden;
   white-space: nowrap;
@@ -299,8 +301,10 @@ ul {
   transition: transform var(--smooth) var(--ease);
 }
 
-.nav__brand:hover .nav__copy {
-  transform: rotate(360deg);
+@media (hover: hover) and (pointer: fine) {
+  .nav__brand:hover .nav__copy {
+    transform: rotate(360deg);
+  }
 }
 
 .nav__names {
@@ -321,12 +325,14 @@ ul {
   transform: translateX(110%);
 }
 
-.nav__brand:hover .nav__names span:first-child {
-  transform: translateX(-110%);
-}
+@media (hover: hover) and (pointer: fine) {
+  .nav__brand:hover .nav__names span:first-child {
+    transform: translateX(-110%);
+  }
 
-.nav__brand:hover .nav__names span + span {
-  transform: translateX(0);
+  .nav__brand:hover .nav__names span + span {
+    transform: translateX(0);
+  }
 }
 
 .nav__links {
@@ -354,9 +360,20 @@ ul {
   transition: transform var(--fast) var(--ease);
 }
 
-.nav__link:hover::after,
+.nav__link::before {
+  content: "";
+  position: absolute;
+  inset: -4px -6px;
+}
+
 .nav__link.is-active::after {
   transform: translateX(-50%) scale(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav__link:hover::after {
+    transform: translateX(-50%) scale(1);
+  }
 }
 
 .menu-btn {
@@ -538,9 +555,14 @@ ul {
   transition: transform var(--fast) var(--ease);
 }
 
-.menu-panel__link:hover::before,
 .menu-panel__link.is-active::before {
   transform: scale(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menu-panel__link:hover::before {
+    transform: scale(1);
+  }
 }
 
 .menu-panel__socials {
@@ -552,6 +574,12 @@ ul {
 
 .menu-panel__socials a {
   position: relative;
+}
+
+.menu-panel__socials a::before {
+  content: "";
+  position: absolute;
+  inset: -10px -4px;
 }
 
 .link-line {
@@ -572,9 +600,11 @@ ul {
   transition: transform var(--primary) var(--ease);
 }
 
-.link-line:hover::after {
-  transform: scaleX(1);
-  transform-origin: left center;
+@media (hover: hover) and (pointer: fine) {
+  .link-line:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
 }
 
 .btn-round {
@@ -614,9 +644,14 @@ ul {
   background: var(--blue-dark);
 }
 
-.btn-round:hover .btn-round__fill,
 .btn-round:focus-visible .btn-round__fill {
   top: -25%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-round:hover .btn-round__fill {
+    top: -25%;
+  }
 }
 
 .btn-round__text,
@@ -647,15 +682,24 @@ ul {
   height: 300%;
 }
 
-.btn-pill:hover,
 .btn-pill:focus-visible {
   color: #fff;
   border-color: var(--dark);
 }
 
-.btn-pill:hover .btn-pill__fill,
 .btn-pill:focus-visible .btn-pill__fill {
   top: -100%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-pill:hover {
+    color: #fff;
+    border-color: var(--dark);
+  }
+
+  .btn-pill:hover .btn-pill__fill {
+    top: -100%;
+  }
 }
 
 .theme-dark-section .btn-pill,
@@ -670,10 +714,12 @@ ul {
   background: var(--blue);
 }
 
-.theme-dark-section .btn-pill:hover,
-.theme-dark .btn-pill:hover,
-.contact .btn-pill:hover {
-  border-color: var(--blue);
+@media (hover: hover) and (pointer: fine) {
+  .theme-dark-section .btn-pill:hover,
+  .theme-dark .btn-pill:hover,
+  .contact .btn-pill:hover {
+    border-color: var(--blue);
+  }
 }
 
 .btn-pill--large {
@@ -1764,8 +1810,10 @@ html:not(.js) .hero__marquee-track {
   transition: box-shadow var(--smooth) var(--ease), background var(--smooth) var(--ease);
 }
 
-.btn-glass:hover {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), inset 0 -1px 0 rgba(0, 0, 0, .3), 0 22px 60px rgba(28, 29, 32, .3);
+@media (hover: hover) and (pointer: fine) {
+  .btn-glass:hover {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), inset 0 -1px 0 rgba(0, 0, 0, .3), 0 22px 60px rgba(28, 29, 32, .3);
+  }
 }
 
 .btn-glass__text {
@@ -1791,13 +1839,15 @@ html:not(.js) .hero__marquee-track {
   transition: transform var(--smooth) var(--ease);
 }
 
-.btn-glass:hover .btn-glass__disc {
-  background: var(--teal-dark);
-  transform: scale(1.08);
-}
+@media (hover: hover) and (pointer: fine) {
+  .btn-glass:hover .btn-glass__disc {
+    background: var(--teal-dark);
+    transform: scale(1.08);
+  }
 
-.btn-glass:hover .btn-glass__disc svg {
-  transform: translateX(.15em);
+  .btn-glass:hover .btn-glass__disc svg {
+    transform: translateX(.15em);
+  }
 }
 
 .services__head {

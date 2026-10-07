@@ -524,9 +524,11 @@
   pointer-events: none;
 }
 
-.tsv-ibtn:hover {
-  background: var(--tsv-wash);
-  border-color: var(--tsv-line-2);
+@media (hover: hover) and (pointer: fine) {
+  .tsv-ibtn:hover {
+    background: var(--tsv-wash);
+    border-color: var(--tsv-line-2);
+  }
 }
 
 .tsv-ibtn:active {
@@ -633,8 +635,8 @@ dialog.tsv-sheet .tsv-sheet__panel:focus-visible {
   }
 
   .tsv-ibtn {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
   }
 
   .tsv-sheet__content {
@@ -989,6 +991,11 @@ dialog.tsv-sheet .tsv-sheet__panel:focus-visible {
 }
 
 @media (pointer: coarse) {
+  .tsv-sheet__bar .tsv-ibtn {
+    width: 44px;
+    height: 44px;
+  }
+
   .tsv-media__nav .tsv-ibtn {
     width: 32px;
     height: 32px;
@@ -1258,9 +1265,11 @@ dialog.tsv-sheet .tsv-sheet__panel:focus-visible {
   transition: background-color .2s var(--tsv-ease-io), border-color .2s var(--tsv-ease-io), transform .2s var(--tsv-ease);
 }
 
-.tsv-btn:hover {
-  background: var(--tsv-wash);
-  border-color: rgba(255, 255, 255, .4);
+@media (hover: hover) and (pointer: fine) {
+  .tsv-btn:hover {
+    background: var(--tsv-wash);
+    border-color: rgba(255, 255, 255, .4);
+  }
 }
 
 .tsv-btn:active {
@@ -1273,8 +1282,10 @@ dialog.tsv-sheet .tsv-sheet__panel:focus-visible {
   border-color: transparent;
 }
 
-.tsv-btn--solid:hover {
-  background: #fff;
+@media (hover: hover) and (pointer: fine) {
+  .tsv-btn--solid:hover {
+    background: #fff;
+  }
 }
 
 .tsv-btn:focus-visible {
