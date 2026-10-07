@@ -1,0 +1,739 @@
+body.page-contact {
+  --err: #B3261E;
+  --err-soft: #FBEEEC;
+  --teal-deep: #3F7A8A;
+  --field-h: 3.5rem;
+  --field-hover: #E8EAEA;
+}
+
+body.page-contact [hidden] {
+  display: none !important;
+}
+
+body.page-contact .hero--dark .hero__location {
+  bottom: auto;
+  background: rgba(255, 255, 255, .1);
+}
+
+body.page-contact .hero--dark .hero__location:hover {
+  background: rgba(255, 255, 255, .17);
+}
+
+body.page-contact .hero--dark .hero__location:active {
+  background: rgba(255, 255, 255, .22);
+}
+
+body.page-contact .contact-section {
+  padding-top: clamp(2.5rem, 8vh, 5.5rem);
+}
+
+body.page-contact .cgrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+body.page-contact .cmain {
+  min-width: 0;
+  container-type: inline-size;
+}
+
+body.page-contact .caside {
+  position: sticky;
+  top: 7rem;
+  min-width: 0;
+}
+
+body.page-contact .csteps {
+  margin-top: var(--space-lg);
+}
+
+body.page-contact .csteps__label {
+  margin-bottom: .9rem;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--ink-mute);
+}
+
+body.page-contact .csteps__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  align-items: stretch;
+}
+
+body.page-contact .csteps__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .8rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  font-size: .95rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+body.page-contact .csteps__num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--dark);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+body.page-contact .cform {
+  position: relative;
+  margin-top: var(--space-xl);
+}
+
+body.page-contact .cform__body > * + * {
+  margin-top: 1.75rem;
+}
+
+body.page-contact .cform__body > .cform__req {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+body.page-contact .cform__req {
+  font-size: .9rem;
+  color: var(--ink-mute);
+}
+
+body.page-contact .cform__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem var(--grid-gap);
+  align-items: start;
+}
+
+body.page-contact .cfield {
+  display: block;
+  min-width: 0;
+  margin-inline: 0;
+  padding: 0;
+  border: 0;
+}
+
+body.page-contact .cfield__label {
+  display: block;
+  margin: 0 0 .6rem;
+  padding: 0;
+  font-size: .95rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+body.page-contact .cfield__label {
+  transition: color var(--fast) var(--ease);
+}
+
+body.page-contact .cfield:focus-within .cfield__label {
+  color: var(--teal-deep);
+}
+
+body.page-contact .cfield.is-invalid .cfield__label {
+  color: var(--err);
+}
+
+body.page-contact .cfield__input {
+  display: block;
+  width: 100%;
+  min-height: var(--field-h);
+  padding: .95rem 1.15rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.4;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background-color var(--fast) var(--ease), outline-color var(--fast) var(--ease);
+}
+
+body.page-contact .cfield__input--area {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+body.page-contact .cfield__input::placeholder {
+  color: var(--ink-mute);
+  opacity: 1;
+}
+
+body.page-contact .cfield__input:hover {
+  background: var(--field-hover);
+}
+
+body.page-contact .cfield__input:focus-visible {
+  background: #fff;
+  outline: 2px solid var(--teal-dark);
+  outline-offset: 0;
+}
+
+body.page-contact .cfield.is-invalid .cfield__input {
+  background: var(--err-soft);
+  outline: 2px solid var(--err);
+  outline-offset: 0;
+}
+
+body.page-contact .cfield__hint {
+  margin-top: .55rem;
+  font-size: .85rem;
+  line-height: 1.45;
+  color: var(--ink-mute);
+  text-wrap: pretty;
+}
+
+body.page-contact .cfield__error {
+  margin-top: .55rem;
+  font-size: .9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--err);
+  animation: cerr-in .4s var(--ease) both;
+}
+
+body.page-contact .cfield__error:empty {
+  display: none;
+}
+
+body.page-contact .cfield.is-nudged {
+  animation: cnudge .45s var(--ease);
+}
+
+body.page-contact .cchips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+body.page-contact .cchip {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+body.page-contact .cchip input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 999px;
+  opacity: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+body.page-contact .cchip__face {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: .7em 1.1em;
+  border-radius: 999px;
+  background: var(--card-bg);
+  color: var(--ink);
+  font-size: .95rem;
+  line-height: 1.2;
+  user-select: none;
+  transition: background-color var(--fast) var(--ease), color var(--fast) var(--ease), scale .2s var(--ease);
+}
+
+body.page-contact .cchip:hover .cchip__face {
+  background: var(--field-hover);
+}
+
+body.page-contact .cchip input:checked + .cchip__face {
+  background: var(--dark);
+  color: #fff;
+}
+
+body.page-contact .cchip:hover input:checked + .cchip__face {
+  background: #26272B;
+}
+
+body.page-contact .cchip input:focus-visible + .cchip__face {
+  outline: 2px solid var(--teal-dark);
+  outline-offset: 3px;
+}
+
+body.page-contact .cchip:active .cchip__face {
+  scale: .96;
+}
+
+body.page-contact .cfield.is-invalid .cchip__face {
+  background: var(--err-soft);
+}
+
+body.page-contact .cfield.is-invalid .cchip:hover .cchip__face {
+  background: #F6DEDA;
+}
+
+body.page-contact .cfield.is-invalid .cchip input:checked + .cchip__face {
+  background: var(--dark);
+}
+
+body.page-contact .cform__trap {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+body.page-contact .cform__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+body.page-contact .cform[data-state="invalid"] .cform__status:not(:empty) {
+  position: static;
+  width: auto;
+  height: auto;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.2rem;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  border-radius: var(--radius-sm);
+  background: var(--err-soft);
+  color: var(--err);
+  font-size: .95rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-wrap: pretty;
+  animation: cerr-in .4s var(--ease) both;
+}
+
+body.page-contact .cform__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+}
+
+body.page-contact .cform__btn {
+  padding: 1.2em 2em;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+body.page-contact .cform__btn .btn-pill__text {
+  white-space: nowrap;
+}
+
+body.page-contact .cform__btn .btn-pill__fill {
+  background: var(--teal-deep);
+}
+
+body.page-contact .cform__btn:hover,
+body.page-contact .cform__btn:focus-visible {
+  background-color: var(--teal-deep);
+}
+
+body.page-contact .cform__btn:disabled {
+  cursor: progress;
+  opacity: .88;
+}
+
+body.page-contact .cform__spin {
+  display: none;
+  flex: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: cspin .8s linear infinite;
+}
+
+body.page-contact .cform[data-state="sending"] .cform__spin {
+  display: inline-block;
+}
+
+body.page-contact .cform[data-state="sending"] .cform__btn .btn-pill__arrow {
+  display: none;
+}
+
+body.page-contact .cform__note {
+  flex: 1 1 16rem;
+  max-width: 27rem;
+  font-size: .9rem;
+  line-height: 1.55;
+  color: var(--ink-mute);
+  text-wrap: pretty;
+}
+
+body.page-contact .cform__noscript {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+html:not(.js) body.page-contact .cform__body > :not(noscript) {
+  display: none;
+}
+
+body.page-contact .cdone {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 3.2vw, 2.75rem);
+  border-radius: var(--radius);
+  background: var(--dark);
+  color: #fff;
+  animation: cdone-in .8s var(--ease) both;
+}
+
+body.page-contact .cdone__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+}
+
+body.page-contact .cdone__glyph {
+  width: 56%;
+  height: 56%;
+}
+
+body.page-contact .cdone__glyph--copy {
+  display: none;
+}
+
+body.page-contact .cdone[data-outcome="manual"] .cdone__icon {
+  background: rgba(255, 255, 255, .14);
+}
+
+body.page-contact .cdone[data-outcome="manual"] .cdone__glyph--check {
+  display: none;
+}
+
+body.page-contact .cdone[data-outcome="manual"] .cdone__glyph--copy {
+  display: block;
+}
+
+body.page-contact .cdone__glyph--check path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: ccheck .6s var(--ease) .3s forwards;
+}
+
+body.page-contact .cdone__title {
+  font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+body.page-contact .cdone__title:focus {
+  outline: none;
+}
+
+body.page-contact .cdone__text {
+  max-width: 34em;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, .78);
+}
+
+body.page-contact .cdone__box {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  width: 100%;
+}
+
+body.page-contact .cdone__label {
+  font-size: .8rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .62);
+}
+
+body.page-contact .cdone__area {
+  display: block;
+  width: 100%;
+  min-height: 9rem;
+  max-height: 26rem;
+  padding: 1rem 1.15rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  font-size: .95rem;
+  line-height: 1.6;
+  resize: vertical;
+  transition: background-color var(--fast) var(--ease);
+}
+
+body.page-contact .cdone__area:hover {
+  background: rgba(255, 255, 255, .12);
+}
+
+body.page-contact .cdone__area:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+body.page-contact .cdone__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1.25rem;
+}
+
+body.page-contact .cdone .btn-pill {
+  padding: 1.05em 1.7em;
+}
+
+body.page-contact .cdone .btn-pill--solid .btn-pill__fill {
+  background: var(--teal-deep);
+}
+
+body.page-contact .cdone .btn-pill--solid:hover,
+body.page-contact .cdone .btn-pill--solid:focus-visible {
+  background-color: var(--teal-deep);
+}
+
+body.page-contact .cdone .btn-pill--glass {
+  background: rgba(255, 255, 255, .1);
+}
+
+body.page-contact .cdone .btn-pill--glass.is-flipped {
+  background: var(--teal-deep);
+  color: #fff;
+}
+
+body.page-contact .cdone__reset {
+  color: rgba(255, 255, 255, .86);
+  font-size: .95rem;
+  cursor: pointer;
+}
+
+body.page-contact .caside__copy {
+  margin-top: 1.5rem;
+  max-width: 30em;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+body.page-contact .csocials {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-top: var(--space-lg);
+}
+
+body.page-contact .csocials__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.5rem;
+  padding: .9rem 1.15rem;
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: var(--ink);
+  transition: background-color var(--fast) var(--ease), color var(--fast) var(--ease), scale .2s var(--ease);
+}
+
+body.page-contact .csocials__link svg {
+  flex: none;
+  width: .8rem;
+  height: .8rem;
+  transition: translate var(--smooth) var(--ease);
+}
+
+body.page-contact .csocials__link:hover,
+body.page-contact .csocials__link:focus-visible {
+  background: var(--dark);
+  color: #fff;
+}
+
+body.page-contact .csocials__link:hover svg,
+body.page-contact .csocials__link:focus-visible svg {
+  translate: 3px -3px;
+}
+
+body.page-contact .csocials__link:active {
+  scale: .985;
+}
+
+body.page-contact .ctips {
+  margin-top: var(--space-lg);
+  gap: 1.1rem;
+}
+
+body.page-contact .ctips .card__title {
+  font-size: 1.3rem;
+  text-wrap: balance;
+}
+
+body.page-contact .ctips__list {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+body.page-contact .ctips__list li {
+  position: relative;
+  padding-left: 1.4rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+body.page-contact .ctips__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .55em;
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+@container (max-width: 600px) {
+  body.page-contact .csteps__list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: .6rem;
+  }
+  body.page-contact .csteps__item {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@keyframes cspin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cerr-in {
+  from {
+    opacity: 0;
+    translate: 0 -6px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes cnudge {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  25% {
+    translate: -6px 0;
+  }
+  60% {
+    translate: 5px 0;
+  }
+}
+
+@keyframes cdone-in {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    filter: blur(0);
+  }
+}
+
+@keyframes ccheck {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  body.page-contact .cgrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2xl);
+  }
+  body.page-contact .caside {
+    position: static;
+  }
+  body.page-contact .ctips {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  body.page-contact .cform__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  body.page-contact .cform__btn {
+    width: 100%;
+    justify-content: center;
+    padding-inline: 1.1em;
+  }
+  body.page-contact .cform__note {
+    flex-basis: 100%;
+    max-width: none;
+  }
+  body.page-contact .cdone__actions .btn-pill {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.page-contact .cfield__error,
+  body.page-contact .cfield.is-nudged,
+  body.page-contact .cform__status,
+  body.page-contact .cdone,
+  body.page-contact .cdone__glyph--check path,
+  body.page-contact .cform__spin {
+    animation: none;
+  }
+  body.page-contact .cdone__glyph--check path {
+    stroke-dashoffset: 0;
+  }
+  body.page-contact .cchip__face,
+  body.page-contact .cfield__input,
+  body.page-contact .csocials__link,
+  body.page-contact .csocials__link svg {
+    transition: none;
+  }
+}

@@ -1,0 +1,226 @@
+body.page-about .about-bio__lead {
+  min-width: 0;
+}
+
+body.page-about .about-bio__lead .inner-title {
+  max-width: 14em;
+  text-wrap: balance;
+}
+
+@media (min-width: 801px) {
+  body.page-about .about-bio__sticky {
+    position: sticky;
+    top: clamp(6rem, 16vh, 10rem);
+  }
+}
+
+body.page-about .about-bio__text {
+  max-width: 34em;
+  padding-top: 2.4rem;
+}
+
+body.page-about .about-bio__text p {
+  color: var(--ink-soft);
+}
+
+body.page-about .about-bio__text p:first-child {
+  color: var(--ink);
+}
+
+body.page-about .about-facts {
+  margin: var(--space-2xl) 0 0;
+  padding: 0;
+  column-gap: clamp(2rem, 6vw, 6rem);
+}
+
+body.page-about .about-facts__item {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  min-width: 0;
+}
+
+body.page-about .about-facts__item::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: var(--border-light);
+  transform-origin: left center;
+  transition: transform var(--slow) var(--ease);
+}
+
+.js body.page-about .about-facts__item::before {
+  transform: scaleX(0);
+}
+
+.js body.page-about .about-facts__item.is-in::before {
+  transform: scaleX(1);
+}
+
+body.page-about .about-facts__item dt {
+  margin-top: 1rem;
+  font-size: .75rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+body.page-about .about-facts__item dd {
+  margin: 0;
+  font-size: clamp(1.15rem, 1.65vw, 1.55rem);
+  letter-spacing: -.02em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+body.page-about .about-lead .card,
+body.page-about .about-services .card {
+  cursor: default;
+}
+
+body.page-about .card:hover {
+  background: var(--card-bg-hover);
+}
+
+body.page-about .card__num {
+  margin-bottom: clamp(1.75rem, 5vh, 3.25rem);
+  transition: color var(--fast) var(--ease);
+}
+
+body.page-about .about-lead .card:hover .card__num {
+  color: var(--teal-dark);
+}
+
+body.page-about .about-services .card:hover .card__num {
+  color: var(--teal);
+}
+
+body.page-about .about-roles__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.page-about .about-roles__list .roles__row {
+  padding-inline: 0;
+  align-items: stretch;
+  transition: color var(--fast) var(--ease);
+}
+
+body.page-about .about-roles__list .roles__row > span {
+  display: flex;
+  align-items: center;
+}
+
+body.page-about .about-roles__list .roles__dates {
+  justify-content: flex-end;
+}
+
+body.page-about .about-roles__list .roles__company {
+  transition: color var(--fast) var(--ease);
+}
+
+body.page-about .about-roles__list .roles__item:hover .roles__company {
+  color: var(--teal-dark);
+}
+
+body.page-about .about-tools {
+  margin-top: var(--space-xl);
+}
+
+body.page-about .about-tools__intro {
+  margin-bottom: 1.25rem;
+  color: var(--ink-mute);
+}
+
+body.page-about .tag {
+  padding: .45em .9em;
+  transition: background-color var(--fast) var(--ease);
+}
+
+body.page-about .tag:hover {
+  background: var(--card-bg-hover);
+}
+
+body.page-about .about-services .inner-head {
+  max-width: 62rem;
+}
+
+body.page-about .about-services .inner-lede {
+  max-width: 44em;
+  text-wrap: balance;
+}
+
+body.page-about .card__title {
+  text-wrap: balance;
+}
+
+body.page-about .about-services .inner-actions {
+  margin-top: var(--space-xl);
+}
+
+@media (min-width: 901px) {
+  body.page-about .card__title {
+    min-height: 2.3em;
+  }
+}
+
+@media (max-width: 1100px) {
+  body.page-about .about-facts {
+    --cols: 2;
+    row-gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 800px) {
+  body.page-about .about-bio__text {
+    padding-top: 0;
+  }
+  body.page-about .about-facts {
+    margin-top: var(--space-xl);
+  }
+}
+
+@media (max-width: 700px) {
+  body.page-about .about-facts {
+    --cols: 2;
+  }
+  body.page-about .about-services .inner-actions .btn-pill {
+    width: 100%;
+    justify-content: center;
+    padding-inline: 1.25em;
+    white-space: nowrap;
+  }
+  body.page-about .about-roles__list .roles__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "company dates" "role role";
+    row-gap: .35rem;
+    padding-block: 1.25rem;
+  }
+  body.page-about .about-roles__list .roles__company {
+    grid-area: company;
+  }
+  body.page-about .about-roles__list .roles__dates {
+    grid-area: dates;
+  }
+  body.page-about .about-roles__list .roles__role {
+    grid-area: role;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.page-about .about-facts__item::before {
+    transition: none;
+  }
+  .js body.page-about .about-facts__item::before {
+    transform: scaleX(1);
+  }
+}
+
+.menu-open body.page-about .menu-btn .menu-btn__inner {
+  background: var(--blue);
+}
+
+.menu-open body.page-about .menu-btn:hover .menu-btn__inner {
+  background: var(--blue-dark);
+}

@@ -1,0 +1,370 @@
+/* ==========================================================================
+   work-ts.css, the work catalogue page. Prefix work-.
+   Loads after ts.css, before brand-ts.css, on work.html only. Panes,
+   eyebrows, heads and the reveal motion come from ts.css, the teal hero and
+   the result line from brand-ts.css. This file adds the hero layout, the
+   card shape, the tool frames and the closing strip.
+   Everything is px. Motion sits in no-preference blocks.
+   ========================================================================== */
+
+/* Blur on the site reveal stays under 0.4 s (the site default is 0.7 s). */
+.js body.page-ts .reveal {
+  transition:
+    opacity .5s var(--ts-ease) var(--delay, 0s),
+    translate .5s var(--ts-ease) var(--delay, 0s),
+    filter .35s var(--ts-ease-io) var(--delay, 0s),
+    background-color .3s var(--ease),
+    color .3s var(--ease),
+    scale .2s var(--ease);
+}
+
+/* ---------- hero ---------- */
+
+body.page-work .work-hero {
+  min-height: clamp(640px, 90svh, 920px);
+}
+
+body.page-work .work-hero .hero__title {
+  font-size: clamp(44px, min(5.2vw, 10svh), 88px);
+  font-weight: 500;
+  letter-spacing: -.035em;
+  line-height: 1.02;
+  max-width: 14em;
+}
+
+body.page-work .work-hero .hero__sub {
+  max-width: 30em;
+}
+
+/* the jump list sits in the second hero column */
+body.page-work .work-jump {
+  grid-column: 2;
+  grid-row: 4 / 6;
+  align-self: end;
+  justify-self: end;
+  display: grid;
+  width: min(340px, 26vw);
+  margin: 0 0 4px;
+}
+
+body.page-work .work-jump a {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 0;
+  color: var(--bt-ink);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  line-height: 1.2;
+  border-top: 1px solid rgba(11, 42, 51, .4);
+  transition: padding-left .35s cubic-bezier(.22, 1, .36, 1), border-color .25s ease;
+}
+
+body.page-work .work-jump a:last-child {
+  border-bottom: 1px solid rgba(11, 42, 51, .4);
+}
+
+body.page-work .work-jump a:is(:hover, :focus-visible) {
+  padding-left: 10px;
+  border-top-color: var(--bt-ink);
+}
+
+body.page-work .work-jump a:focus-visible {
+  outline: 2px solid var(--bt-ink);
+  outline-offset: 3px;
+}
+
+body.page-work .work-jump a:active {
+  opacity: .8;
+}
+
+.work-jump__n {
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  font-variant-numeric: tabular-nums;
+  opacity: .78;
+}
+
+@media (max-width: 800px), (max-width: 1100px) and (orientation: portrait) {
+  body.page-work .work-hero {
+    min-height: 100svh;
+  }
+  body.page-work .work-hero .hero__title {
+    font-size: clamp(38px, calc(14px + 7vw), 76px);
+  }
+  body.page-work .work-jump {
+    width: 100%;
+    justify-self: stretch;
+    margin: 0;
+  }
+  body.page-work .work-jump a {
+    padding: 12px 0;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  body.page-work .work-jump {
+    display: none;
+  }
+}
+
+/* ---------- sections ---------- */
+
+.work-ts {
+  padding-block: clamp(72px, 12vh, 128px);
+}
+
+.work-ts .ts-head {
+  max-width: none;
+  margin-bottom: clamp(32px, 4.4vw, 56px);
+}
+
+.work-ts .ts-title .ts-dim {
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .work-ts .ts-head {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    column-gap: clamp(32px, 6vw, 96px);
+    row-gap: 22px;
+    align-items: end;
+  }
+  .work-ts .ts-head > .ts-eyebrow {
+    grid-column: 1 / -1;
+  }
+  .work-ts .ts-head > .ts-lede {
+    padding-bottom: 6px;
+  }
+  .work-ts .ts-head > .ts-title:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.work-terms {
+  padding-block: clamp(48px, 7vw, 88px) 0;
+}
+
+.work-terms .ts-head {
+  margin-bottom: clamp(20px, 2.6vw, 32px);
+}
+
+/* ---------- grids: 3 wide, 2 mid, 1 narrow ---------- */
+
+.ts-grid.work-grid {
+  gap: clamp(16px, 1.8vw, 24px);
+}
+
+@media (max-width: 1179px) {
+  .ts-grid.work-grid[data-cols="3"] {
+    --cols: 2;
+  }
+}
+
+@media (max-width: 699px) {
+  .ts-grid.work-grid[data-cols="3"] {
+    --cols: 1;
+  }
+}
+
+/* ---------- limits note ---------- */
+
+.work-limits {
+  margin-top: clamp(32px, 4vw, 48px);
+}
+
+/* ---------- front-end tools ---------- */
+
+.ts-grid.work-tools {
+  gap: clamp(16px, 1.8vw, 24px);
+}
+
+@media (max-width: 899px) {
+  .ts-grid.work-tools[data-cols="3"] {
+    --cols: 1;
+  }
+}
+
+.ts-card.work-tool {
+  margin: 0;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: border-color .3s cubic-bezier(.2, 0, 0, 1);
+}
+
+.work-tool:hover {
+  border-color: var(--ts-line-2);
+}
+
+.work-tool__frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f3f4f4;
+  border-bottom: 1px solid var(--ts-line);
+}
+
+.work-tool__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+  transform-origin: 50% 0;
+  transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+.work-tool__frame::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 28%;
+  background: linear-gradient(to bottom, rgba(14, 14, 16, 0), rgba(14, 14, 16, .22));
+  pointer-events: none;
+}
+
+.work-tool__cap {
+  display: grid;
+  gap: 10px;
+  padding: clamp(20px, 2vw, 28px);
+}
+
+.work-tool__cap .ts-card__text {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.work-tool__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: start;
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--teal);
+  transition: gap .3s cubic-bezier(.22, 1, .36, 1), opacity .2s ease;
+}
+
+.work-tool__link span {
+  display: grid;
+  place-items: center;
+}
+
+.work-tool__link svg {
+  width: 11px;
+  height: 11px;
+}
+
+.work-tool__link:is(:hover, :focus-visible) {
+  gap: 12px;
+}
+
+.work-tool__link:active {
+  opacity: .75;
+}
+
+/* ---------- closing strip ---------- */
+
+.work-cta {
+  padding-block: clamp(72px, 10vw, 120px);
+}
+
+.work-cta .hm-cta__grid,
+.work-cta__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) auto;
+  align-items: center;
+  gap: 40px clamp(32px, 6vw, 96px);
+}
+
+.work-cta__who {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+}
+
+.work-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.work-cta .ts-head {
+  margin-bottom: 0;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 899px) {
+  .work-cta__grid {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+@media (max-width: 560px) {
+  .work-cta__who {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .work-cta__actions .btn-pill {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- motion ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* a row of cards rises left to right, 80ms apart, blur gone well inside 350ms */
+  @media (min-width: 1180px) {
+    .ts-js .work-grid > .ts-card:nth-child(3n + 2).is-in,
+    .ts-js .work-tools > .ts-card:nth-child(3n + 2).is-in {
+      animation-delay: 80ms;
+    }
+    .ts-js .work-grid > .ts-card:nth-child(3n).is-in,
+    .ts-js .work-tools > .ts-card:nth-child(3n).is-in {
+      animation-delay: 160ms;
+    }
+  }
+  @media (min-width: 700px) and (max-width: 1179px) {
+    .ts-js .work-grid > .ts-card:nth-child(2n).is-in {
+      animation-delay: 80ms;
+    }
+  }
+
+  .work-tool:hover .work-tool__frame img {
+    transform: scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-tool__frame img,
+  body.page-work .work-jump a {
+    transition: none;
+  }
+}
+
+@media (max-width: 699px) {
+  .work-grid .bt-cover {
+    aspect-ratio: 16 / 8;
+  }
+}
+
+/* a group of four reads as a two by two block with larger covers */
+@media (max-width: 699px) {
+  .ts-grid.work-grid--two {
+    --cols: 1;
+  }
+}
+
+@media (min-width: 700px) {
+  .work-grid--two .bt-cover {
+    aspect-ratio: 16 / 9;
+  }
+}
